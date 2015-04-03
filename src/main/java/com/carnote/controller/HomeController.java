@@ -1,10 +1,15 @@
 package com.carnote.controller;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -43,13 +48,6 @@ public class HomeController {
 	
 	@RequestMapping(value = "/kakao.htm", method = RequestMethod.GET)
 	public String kakao(HttpServletRequest req, Model model) {
-		
-		String url = "https://kauth.kakao.com/oauth/authorize?client_id=03af96156f4ca7cf793f550ada6581e7&redirect_uri=http://dohee.net&response_type=code";
-		String zzz = HttpUtils.get(url);
-		
-		
-		model.addAttribute("data", zzz);
-		//model.addAttribute("serverTime", formattedDate );
 		
 		return "common/server_response";
 	}
